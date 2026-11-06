@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+---
+
+<Base
+  title={`Page not found — ${SITE.name}`}
+  description="The page you’re looking for doesn’t exist or has moved."
+  noindex
+>
+  <main class="stage">
+    <a class="notfound__home" href="/" aria-label={`${SITE.name} home`}>
+    </a>
+    <p class="notfound__code">Error 404</p>
+    <h1 class="notfound__title">Page not found</h1>
+    <p class="notfound__text">
+      This trail doesn’t lead anywhere. The page may have moved, or it never existed.
+    </p>
+    <a class="notfound__button" href="/">Back to home</a>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .stage {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--footer-height) + clamp(2.5rem, 8vh, 4rem)) clamp(1.25rem, 5vw, 3rem)
+      clamp(2.5rem, 8vh, 4rem);
+    text-align: center;
+  }
+
+  .notfound__home {
+    display: block;
+  }
+
+  .notfound__logo {
+    width: clamp(96px, 24vw, 132px);
+    height: auto;
+    aspect-ratio: 1 / 0.66;
+    object-fit: cover;
+    object-position: 50% 33%;
+  }
+
+  .notfound__code {
+    margin: clamp(1.5rem, 4.5vw, 2rem) 0 0;
+    padding-left: 0.4em;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .notfound__title {
+    margin: 0.875rem 0 0;
+    font-size: clamp(1.5rem, 6vw, 2.25rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--white);
+  }
+
+  .notfound__text {
+    max-width: 34ch;
+    margin: clamp(1rem, 3vw, 1.25rem) 0 0;
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    line-height: 1.5;
+    color: var(--silver);
+    text-wrap: balance;
+  }
+
+  .notfound__button {
+    display: inline-flex;
+    align-items: center;
+    height: 2.75rem;
+    margin-top: clamp(1.75rem, 5vw, 2.25rem);
+    padding: 0 1.25rem;
+    border: 1px solid var(--silver);
+    border-radius: 6px;
+    background: var(--silver);
+    color: var(--bg);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background-color 0.3s var(--ease-out),
+      border-color 0.3s var(--ease-out);
+  }
+
+  .notfound__button:hover {
+    background: var(--white);
+    border-color: var(--white);
+  }
+</style>
